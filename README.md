@@ -1,7 +1,10 @@
+git filter-branch --tree-filter /tmp/recode-all-files HEAD
+
 find. -type f print | while read f do
       mv -i "$f" "$f.reocde.$$"
       iconv -f README.md -t utf-8 <"$f.recode.$$" > "$f"
       rm -f "$f.recode.$$"
+done      
 
 # Homework 1 - *Name of App*
 
